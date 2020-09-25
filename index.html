@@ -1,0 +1,141 @@
+<html>
+
+<head>
+    <title>Portfolio</title>
+    <script src="https://kit.fontawesome.com/31e100c39e.js" crossorigin="anonymous"></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="CSS/styles.css" rel="stylesheet" type="text/css">
+    <link href="CSS/weather.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="CSS/slick.css" />
+    <link rel="stylesheet" type="text/css" href="CSS/slick-theme.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
+</head>
+
+<body>
+    <!-- NAVBAR -->
+    <header>
+        <div class="lightning-effect"></div>
+        <nav class="nav">
+            <ul class="nav-list">
+                <li class="nav-item">
+                    <a href="#about-me" class="nav-link"><span class="text">About me</span></a>
+                </li>
+                <li class="nav-item">
+                    <a href="#my-projects" class="nav-link"><span class="text">My Projects</span></a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+
+    <div class="main-container weather rain">
+        <!-- ABOUT ME -->
+        <section class="about-me">
+            <div id="about-me" class="about-me-container">
+                <h1>Hi I'm <br><span class="">Finn</span></h1>
+                <p>a beginner web developer</p>
+                <div class="contact-me">
+                    <a href="" class="contact-me-icon"><i class="fab fa-instagram-square icon insta"></i></a>
+                    <a href="" class="contact-me-icon"><i class="fab fa-facebook-square icon fb"></i></a>
+                    <a href="" class="contact-me-icon"><i class="fab fa-twitter-square icon tt"></i></a>
+                    <a href="" class="contact-me-icon"><i class="fas fa-envelope-square icon env"></i></a>
+                    <a href="" class="contact-me-icon"><i class="fab fa-whatsapp-square icon wa"></i></a>
+                </div>
+            </div>
+        </section>
+
+            <!-- MY PROJECTS SECTION -->
+            <div class="hi">
+        <section class="my-projects-container">
+            <h1 class="my-projects-header">Projects</h1>
+            <div class="my-projects__container">
+                <div class="img-slide">
+                    <div class="single-img">
+                        <h2 class="img-text-big">Project 1</h2>
+                        <img class="my-projects-pictures" src="/Images/placeholder.jpg" alt="">
+                    </div>
+                    <div class="single-img">
+                        <h2 class="img-text-big">Project 2</h2>
+                        <img class="my-projects-pictures" src="/Images/placeholder.jpg" alt="">
+                    </div>
+                    <div class="single-img">
+                        <h2 class="img-text-big">Project 3</h2>
+                        <img class="my-projects-pictures" src="/Images/placeholder.jpg" alt="">
+                    </div>
+                    <div class="single-img">
+                        <h2 class="img-text-big">Project 4</h2>
+                        <img class="my-projects-pictures" src="/Images/placeholder.jpg" alt="">
+                    </div>
+                    <div class="single-img">
+                        <h2 class="img-text-big">Project 5</h2>
+                        <img class="my-projects-pictures" src="/Images/placeholder.jpg" alt="">
+                    </div>
+                    <div class="single-img">
+                        <h2 class="img-text-big">Project 6</h2>
+                        <img class="my-projects-pictures" src="/Images/placeholder.jpg" alt="">
+                    </div>
+                </div>
+                <div class="img-slide-small">
+                    <div class="single-img">
+                        <h2 class="img-text">Project 1</h2>
+                        <img class="my-projects-pictures" src="/Images/placeholder.jpg" alt="">
+                    </div>
+                    <div class="single-img">
+                        <h2 class="img-text">Project 2</h2>
+                        <img class="my-projects-pictures" src="/Images/placeholder.jpg" alt="">
+                    </div>
+                    <div class="single-img">
+                        <h2 class="img-text">Project 3</h2>
+                        <img class="my-projects-pictures" src="/Images/placeholder.jpg" alt="">
+                    </div>
+                    <div class="single-img">
+                        <h2 class="img-text">Project 4</h2>
+                        <img class="my-projects-pictures" src="/Images/placeholder.jpg" alt="">
+                    </div>
+                    <div class="single-img">
+                        <h2 class="img-text">Project 5</h2>
+                        <img class="my-projects-pictures" src="/Images/placeholder.jpg" alt="">
+                    </div>
+                    <div class="single-img">
+                        <h2 class="img-text">Project 6</h2>
+                        <img class="my-projects-pictures" src="/Images/placeholder.jpg" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+        </section>
+    </div>
+
+    <!-- SCRIPTS -->
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script src="/JavaScript/slick.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.img-slide').slick({
+                autoplay: true,
+                slideToShow: 1,
+                slideToScroll: 1,
+                arrows: false,
+                dots: false,
+                centerMode: true,
+                autoplay: false,
+                autoplaySpeed: 1000,
+                cssEase: 'linear',
+                asNavFor: '.img-slide-small'
+            });
+            $('.img-slide-small').slick({
+                slidesToShow: 3,
+                slidesToScroll: 1,
+                asNavFor: '.img-slide',
+                dots: false,
+                centerMode: true,
+                arrows: false,
+                focusOnSelect: true
+            });
+        });
+    </script>
+</body>
+
+</html>
