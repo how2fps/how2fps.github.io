@@ -5,6 +5,10 @@
     background: #fff url('./ajax-loader.gif') center center no-repeat;
 }
 
+:root{
+    --light-gray: rgb(200,207,224);
+    --dark-gray: rgb(82,85,92);
+}
 /* Icons */
 @font-face
 {
@@ -178,7 +182,7 @@
 .slick-dots li button:before
 {
     font-family: 'slick';
-    font-size: 6px;
+    font-size: 30px;
     line-height: 20px;
 
     position: absolute;
@@ -192,7 +196,7 @@
     text-align: center;
 
     opacity: .25;
-    color: black;
+    color: var(--dark-gray);
 
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -200,5 +204,5 @@
 .slick-dots li.slick-active button:before
 {
     opacity: .75;
-    color: black;
+    color: var(--dark-gray);
 }
