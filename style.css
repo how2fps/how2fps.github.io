@@ -1,13 +1,22 @@
 body {
        overflow: hidden; /* Hide scrollbars */
+       color: rgb(182, 226, 196);
+       background: #201e1e;
 }
+
 html {
+       scroll-behavior: smooth;
+}
+
+.main {
+       font-family: "Roboto", sans-serif;
+       margin: 0;
+       padding: 0;
        scroll-behavior: smooth;
 }
 
 .scroll-text {
        position: fixed;
-       color: rgba(92, 184, 140, 1);
        right: 40px;
        top: 80%;
        cursor: default;
@@ -48,7 +57,7 @@ html {
        width: 10px;
        position: fixed;
        height: 11vh;
-       background: rgba(92, 184, 140, 1);
+       background: rgb(182, 226, 196);
        right: 20px;
        z-index: 2;
        display: flex;
@@ -85,7 +94,6 @@ html {
 .logo {
        margin-top: -110px;
        margin-left: -100px;
-       color: rgba(92, 184, 140, 1);
        top: 0;
        left: 0;
        position: absolute;
@@ -120,24 +128,6 @@ html {
        transform-origin: 0 150px;
 }
 
-.moving-rectangle {
-       position: fixed;
-       height: 100px;
-       background: #282828;
-       height: 100vh;
-       right: 423px;
-       z-index: -1;
-       width: 125px;
-}
-
-.main {
-       font-family: "Roboto", sans-serif;
-       background: #201e1e;
-       margin: 0;
-       padding: 0;
-       scroll-behavior: smooth;
-}
-
 .nav {
        display: flex;
        width: 100%;
@@ -161,9 +151,9 @@ html {
 .nav-item {
        text-decoration: none;
        cursor: pointer;
-       color: rgba(92, 184, 140, 1);
        font-size: 1.3rem;
        text-align: center;
+       color: rgb(182, 226, 196);
 }
 
 .nav-item-container {
@@ -172,7 +162,6 @@ html {
 }
 
 .email {
-       color: rgba(92, 184, 140, 1);
        margin-left: 100px;
        font-size: 1.2rem;
 }
@@ -194,14 +183,12 @@ html {
 
 .intro-header {
        font-size: 5rem;
-       color: rgba(92, 184, 140, 1);
        line-height: 1.1;
        font-weight: bold;
 }
 
 .intro-message {
        font-size: 3.5rem;
-       color: rgba(92, 184, 140, 1);
        line-height: 1.15;
        font-weight: normal;
 }
@@ -229,7 +216,6 @@ html {
 
 .about-me-description-header {
        font-size: 5rem;
-       color: rgba(92, 184, 140, 1);
        margin-top: 0;
 }
 
@@ -237,7 +223,6 @@ html {
        max-width: 44ch;
        font-size: 1.3rem;
        line-height: 1.5;
-       color: rgba(92, 184, 140, 1);
 }
 
 .about-me-image-container {
@@ -250,12 +235,43 @@ html {
 
 .about-me-image-caption {
        font-size: 1.3rem;
-       color: rgba(92, 184, 140, 0.8);
 }
 
 .projects-section {
-       height: 100vh;
+       height: 97vh;
+       display: flex;
+       justify-content: center;
+       align-items: center;
 }
 
 .projects-container {
+}
+
+.projects-header {
+       font-size: 5rem;
+       text-align: center;
+}
+
+.projects-showcase {
+       display: grid;
+       gap: 10px;
+       grid-template-columns: repeat(auto-fill, minmax(33vw, 1fr));
+}
+
+.project-card {
+       background: #282828;
+       padding: 10px;
+       border-radius: 5px;
+}
+
+.project-image {
+       max-width: 100%;
+       border-radius: 3px;
+}
+
+.project-description {
+       background: #282828;
+}
+
+.project-longtext {
 }
