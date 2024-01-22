@@ -15,19 +15,41 @@
 
 <body class="main">
 
+
+       <div class="scrollbar"></div>
+       <div class="scrollbar-container">
+              <span class="scroll-text">Scroll to see more
+                     <i class="fa fa-long-arrow-right arrow1"></i>
+              </span>
+              <a class="scrollbar-section" href="#intro-section"></a>
+              <a class="scrollbar-section" href="#about-me-section"></a>
+              <a class="scrollbar-section borderless" href="#projects-section"></a>
+       </div>
+
        <nav class="nav">
-              <a class="nav-item" href="#intro-section">Intro</a>
-              <a class="nav-item" href="#about-me-section">About</a>
-              <a class="nav-item" href="#projects-section">Projects</a>
-              <a class="nav-item">Contact</a>
+              <div class="logo">
+                     <p class="logo-text">Finn - Web Developer - </p>
+              </div>
+              <span class="email">Email: finnyyap@gmail.com</span>
+              <div class="nav-right">
+                     <div class="nav-item-container">
+                            <a class="nav-item" href="#intro-section" id="nav-item">Intro</a>
+                     </div>
+                     <div class="nav-item-container">
+                            <a class="nav-item" href="#about-me-section">About</a>
+                     </div>
+                     <div class="nav-item-container">
+                            <a class="nav-item" href="#projects-section">Projects</a>
+                     </div>
+              </div>
        </nav>
 
-       <div class="moving-rectangle"></div>
+       <!-- <div class="moving-rectangle"></div> -->
 
        <div class="intro-section" id="intro-section">
               <div class="intro-container">
                      <div>
-                            <h1 class="intro-header">Hi I'm Finn, <br>a web developer.</h1>
+                            <h1 class="intro-header dynamic-text">Hi I'm Finn, <br>a web developer.</h1>
                             <p class="intro-message">Creating a great user experience <br> is my why.</p>
                      </div>
               </div>
@@ -35,55 +57,39 @@
 
        <div class="about-me-section" id="about-me-section">
               <div class="about-me-container">
-                     <div>
-                            <h1 class="about-me-header">About Me</h1>
-                            <p class="about-me-message">I am currently in my first year of SUTD, getting owned by
-                                   physics and calculus...
+                     <div class="about-me-description-container">
+                            <h1 class="about-me-description-header">About Me</h1>
+                            <p class="about-me-description-message">I am currently studying in SUTD, getting destroyed
+                                   by
+                                   physics and calculus.
                                    <br><br>
-                                   My passion for web development bloomed during my studies at Temasek Polytechnic in
-                                   2020 when I picked up some online courses on web development by myself. My empathetic
-                                   nature allows me to find flaws and annoyances in website features and designs. My
-                                   favorite part of web development is definitely improving the user experience as much
-                                   as possible.
+                                   My passion for web development grew during my studies at Temasek Polytechnic in
+                                   2020 when I picked up some online courses on web development by myself. My strong
+                                   distaste for minor inconveniences built my passion for creating great user interfaces
+                                   and experiences.
                                    <br><br>
                                    When I’m not polishing my web development skills, I am either playing games like
-                                   Teamfight Tactics or at the gym!
+                                   Teamfight Tactics or at the gym.
                             </p>
                      </div>
-                     <div>
-                            picture
+                     <div class="about-me-image-container">
+                            <img src="pictures/face.png" />
+                            <span class="about-me-image-caption">Me when I'm not doing calculus</span>
                      </div>
               </div>
        </div>
 
-       <div class="intro-section" id="projects-section">
-              <div class="intro-container">
-                     <div>
-                            <h1 class="about-me-header">Hi I'm Finn, <br>a web developer.</h1>
-                            <p class="about-me-message">
-                                   I am currently in my first year of SUTD, getting owned by physics
-                                   and calculus...
-                                   My passion for web development bloomed during my studies at Temasek Polytechnic in
-                                   2020 when I picked up some online courses on web development by myself. My empathetic
-                                   nature allows me to find flaws and annoyances in website features and designs. My
-                                   favorite part of web development is definitely improving the user experience as much
-                                   as possible.
-                                   When I’m not polishing my web development skills, I am either playing games like
-                                   Teamfight Tactics or at the gym!</p>
+       <div class="projects-section" id="projects-section">
+              <div class="projects-container">
+                     <h1 class="projects-header">Projects</h1>
+                     <div class="projects-showcase">
+                            <div class="projects-card"></div>
+                            <div class="projects-card"></div>
+                            <div class="projects-card"></div>
+                            <div class="projects-card"></div>
                      </div>
               </div>
        </div>
-       <div class="intro-section">
-
-              <div class="intro-container">
-                     <div>
-                            <h1 class="intro-header">Hi I'm Finn, <br>a web developer.</h1>
-                            <p class="intro-message">Creating a great user experience <br> is my why.</p>
-                     </div>
-              </div>
-       </div>
-
-
        <script src="index.js"></script>
 </body>
 

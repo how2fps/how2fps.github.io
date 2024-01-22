@@ -1,15 +1,133 @@
+body {
+       overflow: hidden; /* Hide scrollbars */
+}
 html {
        scroll-behavior: smooth;
+}
+
+.scroll-text {
+       position: fixed;
+       color: rgba(92, 184, 140, 1);
+       right: 40px;
+       top: 80%;
+       cursor: default;
+       font-size: 1.5rem;
+       animation: slideToLeft 0.8s;
+}
+
+@keyframes slideToLeft {
+       0%,
+       50% {
+              transform: translateX(100%);
+              opacity: 0;
+       }
+
+       60%,
+       100% {
+              transform: translateY(0);
+              opacity: 1;
+       }
+}
+
+@keyframes slideToRight {
+       0%,
+       50% {
+              transform: translateX(0);
+              opacity: 1;
+       }
+
+       60%,
+       100% {
+              transform: translateX(100%);
+              opacity: 0;
+       }
+}
+
+.scrollbar {
+       top: 50%;
+       width: 10px;
+       position: fixed;
+       height: 11vh;
+       background: rgba(92, 184, 140, 1);
+       right: 20px;
+       z-index: 2;
+       display: flex;
+       flex-direction: column;
+       gap: 2px;
+       transition: transform 0.06s linear;
+       cursor: pointer; /* Set the cursor to indicate grabbing */
+}
+
+.scrollbar-container {
+       top: 50%;
+       width: 10px;
+       position: fixed;
+       height: 33vh;
+       background: #282828;
+       right: 20px;
+       z-index: 1;
+       display: flex;
+       flex-direction: column;
+       cursor: pointer;
+}
+
+.scrollbar-section {
+       box-sizing: border-box;
+       flex-grow: 1;
+       width: 100%;
+       border-bottom: rgb(55, 61, 58) 4px solid;
+}
+
+.borderless {
+       border: none;
+}
+
+.logo {
+       margin-top: -110px;
+       margin-left: -100px;
+       color: rgba(92, 184, 140, 1);
+       top: 0;
+       left: 0;
+       position: absolute;
+       width: 300px;
+       height: 300px;
+       border-radius: 50%;
+       display: flex;
+       justify-content: center;
+       align-items: center;
+       transform: scale(0.22);
+}
+.logo-text {
+       width: 100%;
+       height: 100%;
+       position: absolute;
+       animation: anim 10s linear infinite;
+}
+
+@keyframes anim {
+       0% {
+              transform: rotate(0deg);
+       }
+       100% {
+              transform: rotate(360deg);
+       }
+}
+
+.logo-text span {
+       position: absolute;
+       left: 50%;
+       font-size: 2.2rem;
+       transform-origin: 0 150px;
 }
 
 .moving-rectangle {
        position: fixed;
        height: 100px;
-       width: 130px;
        background: #282828;
        height: 100vh;
-       right: 435px;
+       right: 423px;
        z-index: -1;
+       width: 125px;
 }
 
 .main {
@@ -22,21 +140,41 @@ html {
 
 .nav {
        display: flex;
-       justify-content: space-around;
+       width: 100%;
        position: fixed;
+       align-items: center;
+       justify-content: space-between;
+       padding-top: 28px;
+       padding-bottom: 28px;
+       background: rgba(32, 30, 30, 0.8);
+}
+
+.nav-right {
+       display: flex;
+       justify-content: space-around;
+       align-items: center;
        right: 0;
        margin-right: 48px;
-       margin-top: 48px;
+       width: 500px;
 }
 
 .nav-item {
        text-decoration: none;
        cursor: pointer;
        color: rgba(92, 184, 140, 1);
-       margin-left: 32px;
-       margin-right: 32px;
        font-size: 1.3rem;
-       flex: 1;
+       text-align: center;
+}
+
+.nav-item-container {
+       width: 100%;
+       text-align: center;
+}
+
+.email {
+       color: rgba(92, 184, 140, 1);
+       margin-left: 100px;
+       font-size: 1.2rem;
 }
 
 .intro-section {
@@ -63,26 +201,61 @@ html {
 
 .intro-message {
        font-size: 3.5rem;
-       color: rgba(92, 184, 140, 0.8);
+       color: rgba(92, 184, 140, 1);
        line-height: 1.15;
        font-weight: normal;
 }
 
 .about-me-section {
        display: flex;
+       justify-content: center;
+       align-items: center;
        min-height: 100vh;
 }
 
 .about-me-container {
+       display: flex;
+       align-items: center;
+       justify-content: space-between;
+       font-size: 1rem;
+       gap: 10rem;
 }
 
-.about-me-header {
+.about-me-description-container {
+       display: flex;
+       flex-direction: column;
+       justify-content: space-around;
+}
+
+.about-me-description-header {
        font-size: 5rem;
+       color: rgba(92, 184, 140, 1);
+       margin-top: 0;
+}
+
+.about-me-description-message {
+       max-width: 44ch;
+       font-size: 1.3rem;
+       line-height: 1.5;
        color: rgba(92, 184, 140, 1);
 }
 
-.about-me-message {
-       max-width: 42ch;
-       font-size: 1.2rem;
+.about-me-image-container {
+       display: flex;
+       flex-direction: column;
+       gap: 10px;
+       align-items: center;
+       justify-content: space-between;
+}
+
+.about-me-image-caption {
+       font-size: 1.3rem;
        color: rgba(92, 184, 140, 0.8);
+}
+
+.projects-section {
+       height: 100vh;
+}
+
+.projects-container {
 }
