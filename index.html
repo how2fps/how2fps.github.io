@@ -14,118 +14,138 @@
 </head>
 
 <body class="main">
-       <div class="scrollbar"></div>
+       <!-- <div class="scrollbar"></div>
        <div class="scrollbar-container">
               <span class="scroll-text">
                      <i class="fa fa-long-arrow-right arrow1"></i>
               </span>
               <a class="scrollbar-section borderless" href="#projects-section"></a>
+       </div> -->
+
+
+       <div class="hero-container">
+              <div class="nav">
+                     <span class="intro-message">Hello, I'm Finn, <br> Creating great user experiences is my
+                            why.</span>
+                     <div class="nav-items">
+                            <a target="_blank"
+                                   href="https://drive.google.com/file/d/1pR3n5jk8vBODqBIfcAXHcp7joVavwtRA/view"
+                                   class="nav-resume">My Resume (Google Docs PDF)</a>
+                            <a class="nav-email">hearthstonesigh@gmail.com</a>
+                     </div>
+              </div>
+              <div class="projects-section" id="projects-section">
+
+
+                     <h1 class="projects-header">Projects.</h1>
+                     <div class="projects-showcase">
+                            <div class="project-card">
+                                   <div class="project-image-container">
+                                          <span class="project-title">Smart Device Manager</span>
+                                          <img class="project-image"
+                                                 src="pictures/ProjectScreenshots/GovTechProject.png" alt="">
+                                   </div>
+                                   <div class="project-description">
+                                          <p class="project-description-main">Interactive floor plan where users can
+                                                 view the status and adjust settings of IoT devices. Done for GovTech.
+                                                 <br><br>
+                                                 Used LeafletJS for the map interface, and MUI for the different
+                                                 mini-components.
+                                          </p>
+                                          <p class="tech-description">Technologies used: ReactJS, Redux, Leaflet, AntD,
+                                                 MUI</p>
+                                   </div>
+                            </div>
+                            <div class="project-card">
+                                   <div class="project-image-container">
+                                          <span class="project-title">kNow</span>
+                                          <img class="project-image" src="pictures/ProjectScreenshots/kNow.png" alt="">
+                                   </div>
+                                   <div class="project-description">
+                                          <p class="project-description-main">Location-based social media app that
+                                                 allows users to find nearby places of interest based on other users'
+                                                 stories and get directions.
+                                                 <br><br>
+                                                 Mainly used Google Maps API for map interface and Google Directions API
+                                                 for routing.
+                                          </p>
+                                          <p class="tech-description">Technologies used: Java, Google Maps API,
+                                                 Firebase</p>
+                                   </div>
+                            </div>
+                            <div class="project-card">
+                                   <div class="project-image-container">
+                                          <span class="project-title">Pic'A'Pixel</span>
+                                          <img class="project-image" src="pictures/ProjectScreenshots/Pic'A'Pixel.jpg"
+                                                 alt="">
+                                   </div>
+                                   <div class="project-description">
+                                          <p class="project-description-main">Arduino-based pixel board that allows
+                                                 users to create pixel art at a bus-stop using a web app created by
+                                                 ReactJS.
+                                                 <br><br>
+                                                 Used proximity sensors to detect bus arrivals and departures.
+                                          </p>
+                                          <p class="tech-description">Technologies used: Arduino, C++, ReactJS</p>
+                                   </div>
+                            </div>
+                            <div class="project-card">
+                                   <div class="project-image-container">
+                                          <span class="project-title">Tappin Queen</span>
+                                          <img class="project-image" src="pictures/ProjectScreenshots/TappinQueen.jpg"
+                                                 alt="">
+                                   </div>
+                                   <div class="project-description">
+                                          <p class="project-description-main">Harder version of Simon memory game made
+                                                 with FPGA and assembly. Created finite state machines to deal with the
+                                                 different stages.
+                                          </p>
+                                          <p class="tech-description">Technologies used: FPGA, C, Lucid</p>
+                                   </div>
+                            </div>
+                            <div class="project-card">
+                                   <div class="project-image-container">
+                                          <span class="project-title">SutDoki</span>
+                                          <img class="project-image" src="pictures/ProjectScreenshots/SutDoki.jpg"
+                                                 alt="">
+                                   </div>
+                                   <div class="project-description">
+                                          <p class="project-description-main">Visual Novel game where players can
+                                                 experience the life of a SUTD student. Players can choose their own
+                                                 path and make decisions that affect the outcome of the game.
+                                                 <br><br> Created a function that allowed teammates to place a formatted
+                                                 script in as a parameter and turn it into proper UI.
+                                          </p>
+                                          <p class="tech-description">Technologies used: Python, tkinter</p>
+                                   </div>
+                            </div>
+                            <div class="project-card">
+                                   <div class="project-image-container">
+                                          <span class="project-title">Other Projects...</span>
+                                          <img class="project-image" src="/pictures/ProjectScreenshots/SpaceFartz.png"
+                                                 alt="">
+                                   </div>
+                                   <div class="project-description">
+                                          <p class="project-description-main">2D space shooter game where players can
+                                                 control a spaceship and shoot enemies. Players can upgrade their
+                                                 spaceship and unlock new weapons.
+                                                 <br><br>
+                                                 Done for MindSports club competition. (2nd)
+                                          </p>
+                                          <p class="tech-description">Technologies used: Godot, GDScript</p>
+                                   </div>
+                            </div>
+
+                     </div>
+              </div>
        </div>
-
-       <nav class="nav">
-              <div class="logo">
-                     <p class="logo-text">Finn - Web Developer - </p>
-              </div>
-              <span class="intro-message">I'm Finn. Creating great user experiences is my
-                     why.</span>
-              <div class="nav-container">
-                     <div class="nav-item-container">
-                            <a class="nav-item" href="#about-me-section">Projects</a>
-                     </div>
-                     <div class="nav-item-container">
-                            <a class="nav-item" href="#projects-section">About</a>
-                     </div>
-              </div>
-       </nav>
-
-       <div class="projects-section" id="projects-section">
-
-              <h1 class="projects-header">Projects.</h1>
-              <div class="projects-showcase">
-                     <div class="project-card">
-                            <div class="project-image-container">
-                                   <span class="project-title">Smart Device Manager</span>
-                                   <img class="project-image" src="pictures/ProjectScreenshots/GovTechProject.png"
-                                          alt="">
-                            </div>
-                            <div class="project-description">
-                                   <p class="project-description-main">Interactive floor plan where users can
-                                          view the status and adjust settings of IoT devices. Done for GovTech.
-                                   </p>
-                                   <p class="tech-description">Technologies used: ReactJS, Redux, Leaflet, AntD, MUI</p>
-                            </div>
-                     </div>
-                     <div class="project-card">
-                            <div class="project-image-container">
-                                   <span class="project-title">kNow</span>
-                                   <img class="project-image" src="pictures/ProjectScreenshots/kNow.png" alt="">
-                            </div>
-                            <div class="project-description">
-                                   <p class="project-description-main">Interactive floor plan where users can
-                                          view the status and adjust settings of IoT devices.
-                                   </p>
-                                   <p class="tech-description">Technologies used: ReactJS, Redux, Leaflet, AntD, MUI</p>
-                            </div>
-                     </div>
-                     <div class="project-card">
-                            <div class="project-image-container">
-                                   <span class="project-title">Pic'A'Pixel</span>
-                                   <img class="project-image" src="pictures/ProjectScreenshots/Pic'A'Pixel.jpg" alt="">
-                            </div>
-                            <div class="project-description">
-                                   <p class="project-description-main">Interactive floor plan where users can
-                                          view the status and adjust settings of IoT devices.
-                                   </p>
-                                   <p class="tech-description">Technologies used: ReactJS, Redux, Leaflet, AntD, MUI</p>
-                            </div>
-                     </div>
-                     <div class="project-card">
-                            <div class="project-image-container">
-                                   <span class="project-title">Tappin Queen</span>
-                                   <img class="project-image" src="pictures/ProjectScreenshots/TappinQueen.jpg" alt="">
-                            </div>
-                            <div class="project-description">
-                                   <p class="project-description-main">Interactive floor plan where users can
-                                          view the status and adjust settings of IoT devices.
-                                   </p>
-                                   <p class="tech-description">Technologies used: ReactJS, Redux, Leaflet, AntD, MUI</p>
-                            </div>
-                     </div>
-                     <div class="project-card">
-                            <div class="project-image-container">
-                                   <span class="project-title">SutDoki</span>
-                                   <img class="project-image" src="pictures/ProjectScreenshots/SutDoki.jpg" alt="">
-                            </div>
-                            <div class="project-description">
-                                   <p class="project-description-main">Interactive floor plan where users can
-                                          view the status and adjust settings of IoT devices.
-                                   </p>
-                                   <p class="tech-description">Technologies used: ReactJS, Redux, Leaflet, AntD, MUI</p>
-                            </div>
-                     </div>
-                     <div class="project-card">
-                            <div class="project-image-container">
-                                   <span class="project-title">Other Projects...</span>
-                                   <img class="project-image" src="pictures/GovTechProject.png" alt="">
-                            </div>
-                            <div class="project-description">
-                                   <p class="project-description-main">Interactive floor plan where users can
-                                          view the status and adjust settings of IoT devices.
-                                   </p>
-                                   <p class="tech-description">Technologies used: ReactJS, Redux, Leaflet, AntD, MUI</p>
-                            </div>
-                     </div>
-
-              </div>
-       </div>
-
        <div class="about-me-section" id="about-me-section">
               <div class="about-me-description-container">
                      <h1 class="about-me-description-header">About Me.</h1>
                      <p class="about-me-description-message">
-                            I am a year 2 student in SUTD.
+                            I am a year 2 student in SUTD, pursuing a degree in Computer Science.
                             <br><br>
-                            My journey began at Temasek Polytechnic in
+                            My programming journey began at Temasek Polytechnic in
                             2020 when I took online courses on web development independently.
                             <br></br>
                             My strong
@@ -133,11 +153,12 @@
                             interfaces and experiences.
                             <br><br>
                             When I’m not polishing my programming skills, I am either playing games like
-                            Teamfight Tactics or at the gym.
+                            Teamfight Tactics, MTG (EDH), or at the gym.
+
                      </p>
               </div>
               <div class="about-me-image-container">
-                     <img src="pictures/face.png" alt="Me">
+                     <img class="about-me-image" src="pictures/face.png" alt="Me">
                      <span class="about-me-image-caption">Me when I'm not doing calculus</span>
               </div>
        </div>
