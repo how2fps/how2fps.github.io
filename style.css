@@ -247,6 +247,18 @@ html {
               font-size: 1.2rem;
        }
 
+       .nav {
+              padding: 30px 0 30px;
+              display: flex;
+              justify-content: space-between;
+       }
+
+       .nav-items {
+              display: flex;
+              flex-direction: column;
+              justify-content: space-between;
+              align-items: end;
+       }
        .project-title {
               font-size: 1rem;
        }
@@ -332,6 +344,18 @@ html {
               font-size: 1.2rem;
        }
 
+       .nav {
+              padding: 30px 0 30px;
+              display: flex;
+              justify-content: space-between;
+       }
+
+       .nav-items {
+              display: flex;
+              flex-direction: column;
+              justify-content: space-between;
+              align-items: end;
+       }
        .project-title {
               font-size: 1rem;
        }
@@ -418,6 +442,18 @@ html {
        .intro-message {
               font-size: 1rem;
        }
+       .nav {
+              padding: 30px 0 30px;
+              display: flex;
+              justify-content: space-between;
+       }
+
+       .nav-items {
+              display: flex;
+              flex-direction: column;
+              justify-content: space-between;
+              align-items: end;
+       }
 
        .project-title {
               font-size: 1rem;
@@ -497,21 +533,27 @@ html {
               justify-content: center;
               align-items: center;
        }
-       .scrollbar {
-              display: none;
+
+       .nav {
+              margin-top: -8px;
+              font-size: 0.8rem;
+              width: 90vw;
+              padding: 30px 0 20px;
+              display: flex;
+              flex-direction: column;
+              justify-content: space-between;
+       }
+
+       .nav-items {
+              margin-top: 10px;
+              display: flex;
+              flex-direction: column;
+              justify-content: space-between;
+              align-items: start;
        }
 
        .scrollbar-container {
               display: none;
-       }
-
-       .logo {
-              display: none;
-       }
-
-       .intro-message {
-              width: 90vw;
-              font-size: 14px;
        }
 
        .project-title {
