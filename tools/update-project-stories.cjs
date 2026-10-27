@@ -26,12 +26,13 @@ const pic=data.projects.find(p=>p.title==='Pic’A’Pixel');
 pic.category='SUTD DTI · Arduino & interactive lighting';
 pic.description='A team design-and-technology project exploring how a bus stop could become a place for shared interaction. Visitors pick a pixel and colour on a digital panel, contributing to a collective illuminated ceiling artwork. A secondary bus-boarding mode uses lighting and on-screen arrival/departure messages. The project combines a React interface, a Node serial bridge, Firestore and an Arduino-connected LED prototype.';
 pic.galleryTitle='From concept to prototype';
-pic.previewNote='The original exhibition image is followed by the supplied DTI poster and curated details extracted from it. The day/night bus-stop views are design visualisations; the four-cell LED unit is the prototype pictured in the poster.';
+pic.previewNote='The supplied DTI poster leads the gallery, followed by the original exhibition image and curated details from the poster. The day/night bus-stop views are design visualisations; the four-cell LED unit is the prototype pictured in the poster.';
 pic.screenshots=[existingShot(pic,'Exhibition setting','The original project image shows Pic’A’Pixel presented in an exhibition setting.'),...await Promise.all([
 ['02-design-poster','DTI project poster','The original poster brings together the problem, design goal, site, proposed interaction, prototype and user-testing feedback.'],
 ['03-bus-stop-concept','Day and night concept','Design visualisations show the proposed pixel ceiling and interaction panel near Upper Changi MRT and SUTD. These images describe the concept rather than a completed bus-stop installation.'],
 ['04-led-prototype','Four-cell LED prototype','The prototype pictured in the poster demonstrates independently coloured illuminated cells. The linked server code maps four grid positions to four hardware coordinates.']
 ].map(a=>shot('picapixel',...a)))];
+pic.screenshots.unshift(...pic.screenshots.splice(pic.screenshots.findIndex(s=>s.title==='DTI project poster'),1));
 pic.links=[{label:'DTI project poster (PDF)',href:'./pictures/picapixel/dti-project.pdf'},{label:'Frontend source',href:'https://github.com/how2fps/dti-ui'},{label:'Backend source',href:'https://github.com/how2fps/dti-backend'}];
 pic.technologyGroups=[
 group('Design goal and interaction','The DTI poster identifies boredom and limited interaction at the bus stop as the starting problem. The proposal pairs a shared colour-selection panel with an overhead pixel board, giving waiting passengers a small contribution to make together. Its secondary function signals bus arrival and boarding points.',['Participatory design','Interactive lighting','Arduino','LED prototype']),

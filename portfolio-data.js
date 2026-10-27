@@ -795,17 +795,8 @@ window.portfolioData = {
           ]
         }
       ],
-      "previewNote": "The original exhibition image is followed by the supplied DTI poster and curated details extracted from it. The day/night bus-stop views are design visualisations; the four-cell LED unit is the prototype pictured in the poster.",
+      "previewNote": "The supplied DTI poster leads the gallery, followed by the original exhibition image and curated details from the poster. The day/night bus-stop views are design visualisations; the four-cell LED unit is the prototype pictured in the poster.",
       "screenshots": [
-        {
-          "src": "./pictures/optimized/Pic'A'Pixel.webp",
-          "alt": "The Pic’A’Pixel exhibition space, with visitors and a large projected display",
-          "width": 960,
-          "height": 445,
-          "thumbnail": "./pictures/optimized/Pic'A'Pixel-480.webp",
-          "title": "Exhibition setting",
-          "caption": "The original project image shows Pic’A’Pixel presented in an exhibition setting."
-        },
         {
           "src": "./pictures/picapixel/02-design-poster.webp",
           "thumbnail": "./pictures/picapixel/02-design-poster-480.webp",
@@ -814,6 +805,15 @@ window.portfolioData = {
           "title": "DTI project poster",
           "caption": "The original poster brings together the problem, design goal, site, proposed interaction, prototype and user-testing feedback.",
           "alt": "DTI project poster — The original poster brings together the problem, design goal, site, proposed interaction, prototype and user-testing feedback."
+        },
+        {
+          "src": "./pictures/optimized/Pic'A'Pixel.webp",
+          "alt": "The Pic’A’Pixel exhibition space, with visitors and a large projected display",
+          "width": 960,
+          "height": 445,
+          "thumbnail": "./pictures/optimized/Pic'A'Pixel-480.webp",
+          "title": "Exhibition setting",
+          "caption": "The original project image shows Pic’A’Pixel presented in an exhibition setting."
         },
         {
           "src": "./pictures/picapixel/03-bus-stop-concept.webp",
@@ -1021,6 +1021,426 @@ window.portfolioData = {
           "Character affection state"
         ]
       }
+    },
+    {
+      "id": "bunnycov",
+      "title": "BunnyCov",
+      "category": "Coverage-guided fuzzing · Python experimentation framework",
+      "description": "An AFL-style fuzzing harness for exploring how parsers behave under unexpected input. BunnyCov connects a seed corpus, pluggable schedulers, grammar-aware and byte-level mutations, target execution and feedback scoring. A live terminal dashboard makes each experiment visible, while SQLite records the inputs and outcomes for later analysis.",
+      "technologies": [
+        "Python",
+        "Rich",
+        "SQLite",
+        "coverage.py",
+        "QEMU",
+        "Grammar-based fuzzing",
+        "UCB1",
+        "Thompson sampling",
+        "Pandas",
+        "Matplotlib"
+      ],
+      "galleryTitle": "Inside the terminal",
+      "previewNote": "Rendered with the repository’s original Rich UI code. Settings and counters are illustrative preview data, not measured performance or verified bug findings. No target fuzzing or external model calls were performed for these previews.",
+      "screenshots": [
+        {
+          "src": "./pictures/fuzzer/fuzzer-dashboard.webp",
+          "thumbnail": "./pictures/fuzzer/fuzzer-dashboard-480.webp",
+          "width": 2214,
+          "height": 489,
+          "title": "Live fuzzing dashboard",
+          "caption": "The original terminal renderer shows execution rate, coverage, workers, pending jobs and the latest mutated input. All counters here are sample values.",
+          "alt": "Live fuzzing dashboard: The original terminal renderer shows execution rate, coverage, workers, pending jobs and the latest mutated input. All counters here are sample values."
+        },
+        {
+          "src": "./pictures/fuzzer/fuzzer-config.webp",
+          "thumbnail": "./pictures/fuzzer/fuzzer-config-480.webp",
+          "width": 1482,
+          "height": 514,
+          "title": "Experiment configuration",
+          "caption": "Target, seed scheduler, mutation mode, workers, timeout, iteration budget and module versions are visible before a run. These are illustrative settings.",
+          "alt": "Experiment configuration: Target, seed scheduler, mutation mode, workers, timeout, iteration budget and module versions are visible before a run. These are illustrative settings."
+        }
+      ],
+      "links": [
+        {
+          "label": "Source code",
+          "href": "https://github.com/how2fps/fuzzer"
+        }
+      ],
+      "brief": {
+        "features": [
+          "Coverage and differential feedback",
+          "Pluggable seed and power schedulers",
+          "SQLite results and batch reports"
+        ]
+      },
+      "technologyGroups": [
+        {
+          "title": "Start with a reproducible experiment",
+          "description": "A run begins with a target and an initial seed corpus. Command-line options or JSON configurations select the scheduler, mutator and parser versions, execution budget, worker count, timeout and optional random seed. The harness supports JSON, IPv4, IPv6 and CIDR-related targets. Saving the resolved configuration alongside the output makes runs easier to repeat and compare.",
+          "technologies": [
+            "Python",
+            "JSON configuration"
+          ]
+        },
+        {
+          "title": "Choose a seed, then mutate it",
+          "description": "The seed scheduler chooses which existing input to explore next. Implementations include queue and heap schedulers, Thompson sampling and a UCB tree that groups seeds by coverage and bug/output signals. A separate power scheduler controls mutation energy. Mutation implementations range from byte havoc to grammar/AST-aware changes and adaptive operator selection, balancing malformed input with inputs that can reach deeper parser logic.",
+          "technologies": [
+            "UCB1",
+            "Thompson sampling",
+            "Grammar-based fuzzing"
+          ]
+        },
+        {
+          "title": "Execute, observe and feed back",
+          "description": "Workers run mutated inputs through target adapters and collect status, exceptions, output and coverage. The project supports coverage.py-based tracking and a QEMU showmap adapter for binary targets. Interestingness combines signals such as new covered arcs, crashes, timeouts, rare bugs and disagreement with an open/reference implementation. Retaining useful inputs lets later iterations build on earlier discoveries; a differing result is a signal to investigate, rather than proof of a vulnerability.",
+          "technologies": [
+            "coverage.py",
+            "QEMU",
+            "Multiprocessing"
+          ]
+        },
+        {
+          "title": "Keep the experiment inspectable",
+          "description": "Rich panels show execution progress, worker activity, coverage and the latest mutation. SQLite retains per-iteration inputs, results and scores; exports include CSV results and representative exception/line pairs. Batch runs repeat configurations and generate an HTML report with aggregated charts and tables, so scheduler or mutator variants can be examined across runs instead of relying on a single terminal snapshot.",
+          "technologies": [
+            "Rich",
+            "SQLite",
+            "Pandas",
+            "Matplotlib"
+          ]
+        },
+        {
+          "title": "Explore alternative strategies",
+          "description": "Versioned modules provide a way to swap one part of the pipeline for controlled comparisons. The repository also includes grammar-based corpus refill, optional LLM seed fallback, run-validity analysis scripts and tests for the Thompson and UCB tree schedulers. These support experimentation; the portfolio previews do not claim a benchmark win or a particular number of real bugs found.",
+          "technologies": [
+            "Ablation studies",
+            "Seed generation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "spacefartz",
+      "title": "SpaceFartz",
+      "category": "Game jam · 2nd place · Godot arcade shooter",
+      "description": "A vertical arcade space shooter made with my group for a game jam, where we won second place. Dodge incoming fire, shoot through waves of enemies and collect upgrades before facing a boss. Built in Godot with GDScript, the project combines a deliberately playful identity with a short, escalating survival loop.",
+      "technologies": [
+        "Godot 4",
+        "GDScript",
+        "2D physics",
+        "Scene composition"
+      ],
+      "galleryTitle": "A look at the game",
+      "previewNote": "Curated scene reconstructions using the repository’s original sprites and background. Positions and scores are illustrative; these are not captured gameplay frames. Second-place game-jam result supplied by Finn.",
+      "screenshots": [
+        {
+          "src": "./pictures/spacefartz/01-waves.webp",
+          "thumbnail": "./pictures/spacefartz/01-waves-480.webp",
+          "width": 1100,
+          "height": 1000,
+          "title": "Enemy waves",
+          "caption": "Original player, enemy, projectile and upgrade artwork arranged to illustrate the vertical shooter loop.",
+          "alt": "Enemy waves: Original player, enemy, projectile and upgrade artwork arranged to illustrate the vertical shooter loop."
+        },
+        {
+          "src": "./pictures/spacefartz/02-boss.webp",
+          "thumbnail": "./pictures/spacefartz/02-boss-480.webp",
+          "width": 1100,
+          "height": 1000,
+          "title": "Boss encounter",
+          "caption": "The original purple boss sprite in a curated encounter preview; score and projectile positions are sample content.",
+          "alt": "Boss encounter: The original purple boss sprite in a curated encounter preview; score and projectile positions are sample content."
+        }
+      ],
+      "links": [
+        {
+          "label": "Source code",
+          "href": "https://github.com/how2fps/SpaceFartz"
+        }
+      ],
+      "brief": {
+        "features": [
+          "2nd place in a group game jam",
+          "Escalating waves and boss encounters",
+          "Collectible weapon and movement upgrades"
+        ]
+      },
+      "technologyGroups": [
+        {
+          "title": "Build a compact arcade loop",
+          "description": "The project starts from a menu and instantiates the player into a 540 × 960 playfield. Directional input controls movement and the accept action fires the weapon. CharacterBody2D movement, viewport clamping and collision groups connect the player, enemies and bullets. Score updates and a return to the menu close the loop when the player runs out of lives.",
+          "technologies": [
+            "Godot 4",
+            "GDScript",
+            "2D physics"
+          ]
+        },
+        {
+          "title": "Escalate the encounter",
+          "description": "The main scene spawns enemies on a one-second interval. A twenty-second timer raises enemy health and background scroll speed; a boss event is scheduled after forty-one seconds. Three enemy variants use different health, movement and firing parameters. On a boss event, regular enemies are cleared and spawning pauses, giving the encounter a different rhythm.",
+          "technologies": [
+            "Timers",
+            "Signals",
+            "PackedScene"
+          ]
+        },
+        {
+          "title": "Reward survival with upgrades",
+          "description": "Defeated enemies can drop fire-rate, movement-speed, health or bullet-count upgrades. Player property setters pass weapon changes into the weapon node. Damage triggers temporary invulnerability and flashing feedback; dedicated sounds accompany shots, explosions, upgrades and boss encounters. The global high score is retained between scenes during a session.",
+          "technologies": [
+            "GDScript",
+            "Audio",
+            "Scene composition"
+          ]
+        },
+        {
+          "title": "Work within a game jam",
+          "description": "This was a group jam entry, with the team earning second place. The code is organised into small reusable scenes for weapons, bullets, enemies, bosses and pickups, which makes it practical to assemble and tune the arcade loop. The gallery highlights that loop using the original artwork.",
+          "technologies": [
+            "Team project",
+            "Game jam"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "just-mbap",
+      "title": "Just",
+      "category": "Temasek Polytechnic · Mobile task and focus app",
+      "description": "A Polytechnic mobile-development project built with Ionic and Angular. Just combines a calendar-based task list with a focused countdown timer, completion streaks and friends. Tasks can be private or visible to friends, adding a social layer to a personal productivity workflow.",
+      "technologies": [
+        "Ionic 5",
+        "Angular 12",
+        "TypeScript",
+        "RxJS",
+        "Firebase Authentication",
+        "Cloud Firestore",
+        "Firebase Storage",
+        "Cordova"
+      ],
+      "previewNote": "Source-based reconstructions of the Ionic screen templates using fictional tasks, profile details and timer values. These are curated previews, not emulator captures; no Firebase accounts or live user data are accessed.",
+      "screenshots": [
+        {
+          "src": "./pictures/just-mbap/tasks.webp",
+          "thumbnail": "./pictures/just-mbap/tasks-480.webp",
+          "width": 1000,
+          "height": 1000,
+          "title": "Calendar and task list",
+          "caption": "The month view, task actions and selected-day list reconstructed from the All Tasks template with fictional tasks.",
+          "alt": "Calendar and task list: The month view, task actions and selected-day list reconstructed from the All Tasks template with fictional tasks."
+        },
+        {
+          "src": "./pictures/just-mbap/focus.webp",
+          "thumbnail": "./pictures/just-mbap/focus-480.webp",
+          "width": 1000,
+          "height": 1000,
+          "title": "Current task timer",
+          "caption": "A source-based preview of task details, visibility, remaining time and pause/complete controls.",
+          "alt": "Current task timer: A source-based preview of task details, visibility, remaining time and pause/complete controls."
+        },
+        {
+          "src": "./pictures/just-mbap/profile.webp",
+          "thumbnail": "./pictures/just-mbap/profile-480.webp",
+          "width": 1000,
+          "height": 1000,
+          "title": "Profile and streaks",
+          "caption": "A fictional profile illustrating the original template’s status, current and highest streaks, friend ID and account actions.",
+          "alt": "Profile and streaks: A fictional profile illustrating the original template’s status, current and highest streaks, friend ID and account actions."
+        }
+      ],
+      "links": [
+        {
+          "label": "Source code",
+          "href": "https://github.com/how2fps/Just-mbap"
+        }
+      ],
+      "brief": {
+        "features": [
+          "Calendar tasks and focus countdown",
+          "Friends and task visibility",
+          "Completion streaks and profile editing"
+        ]
+      },
+      "technologyGroups": [
+        {
+          "title": "Plan a task, then focus on it",
+          "description": "The calendar selects a date and the task service queries the signed-in user’s Firestore tasks for that day, with an option to show all tasks. Forms support creating and editing tasks, allocating time and choosing whether friends can see them. Sliding list actions expose edit and delete, while selecting a task can make it the current focus.",
+          "technologies": [
+            "Ionic 5",
+            "Angular 12",
+            "Cloud Firestore"
+          ]
+        },
+        {
+          "title": "Keep track of time across visits",
+          "description": "The current-task page uses an RxJS timer with a stop signal to drive the countdown. Pausing writes the remaining time to Firestore. Before the page unloads, local storage records the task ID, remaining time, running state and departure timestamp; returning to the same task subtracts elapsed time when the timer had been running. A route guard also supports saving time when leaving the page.",
+          "technologies": [
+            "RxJS",
+            "Local storage",
+            "Angular routing"
+          ]
+        },
+        {
+          "title": "Make progress social",
+          "description": "Completing a task updates the current and highest streak using the task date, removes the task document and opens a completion view. Friend IDs support finding people, sending and accepting requests, and viewing a friend’s shared tasks. Profiles surface a status and streaks; profile editing and image upload connect identity with the task workflow.",
+          "technologies": [
+            "Cloud Firestore",
+            "Firebase Storage"
+          ]
+        },
+        {
+          "title": "Connect the mobile interface to services",
+          "description": "AngularFire connects authentication and Firestore data to Angular services. RxJS operators compose user-dependent queries and live document updates. Ionic supplies mobile navigation and form components, while Cordova configuration targets native packaging and includes camera integration. This was built during my time at Temasek Polytechnic.",
+          "technologies": [
+            "TypeScript",
+            "Firebase Authentication",
+            "Cordova"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "food-times",
+      "title": "Food Times",
+      "category": "My first development project · Restaurant discovery and reviews",
+      "description": "My first development project: a restaurant discovery and review website. Food Times lets visitors browse restaurants, search by name and filter by cuisine, then open restaurant details and read reviews. Account features connect the browsing experience to writing reviews and managing a profile. It marks the beginning of my journey from learning web development to building a full application.",
+      "technologies": [
+        "JavaScript",
+        "Node.js",
+        "Express",
+        "EJS",
+        "MySQL",
+        "SCSS",
+        "Express sessions",
+        "Multer"
+      ],
+      "previewNote": "Offline screenshots of the original EJS templates, CSS hover effects and login/sign-up interactions, using fictional data. Bundled imagery stands in for restaurant photos; the remote logo and icons use text equivalents and external fonts are unavailable. Account forms are shown without submitting them or connecting to a database or email service.",
+      "screenshots": [
+        {
+          "src": "./pictures/food-times/01-home.webp",
+          "thumbnail": "./pictures/food-times/01-home-480.webp",
+          "width": 1440,
+          "height": 1050,
+          "title": "Food Times homepage",
+          "caption": "The original orange-and-dark homepage, cuisine selector and restaurant cards, rendered with fictional sample listings.",
+          "alt": "Food Times homepage: The original orange-and-dark homepage, cuisine selector and restaurant cards, rendered with fictional sample listings."
+        },
+        {
+          "src": "./pictures/food-times/04-card-hover.webp",
+          "thumbnail": "./pictures/food-times/04-card-hover-480.webp",
+          "width": 1440,
+          "height": 1050,
+          "title": "Restaurant card hover",
+          "caption": "The original CSS lifts the card front and expands the dark panel behind it, revealing the rating and review action.",
+          "alt": "Restaurant card hover: The original CSS lifts the card front and expands the dark panel behind it, revealing the rating and review action."
+        },
+        {
+          "src": "./pictures/food-times/05-login.webp",
+          "thumbnail": "./pictures/food-times/05-login-480.webp",
+          "width": 1440,
+          "height": 1050,
+          "title": "Login",
+          "caption": "The original login modal opened through the navigation button, with username/password fields and a forgot-password action.",
+          "alt": "Login: The original login modal opened through the navigation button, with username/password fields and a forgot-password action."
+        },
+        {
+          "src": "./pictures/food-times/06-signup.webp",
+          "thumbnail": "./pictures/food-times/06-signup-480.webp",
+          "width": 1440,
+          "height": 1050,
+          "title": "Sign up",
+          "caption": "The original sliding overlay switches to registration, showing name, email, username, password and contact fields. Names are fictional.",
+          "alt": "Sign up: The original sliding overlay switches to registration, showing name, email, username, password and contact fields. Names are fictional."
+        },
+        {
+          "src": "./pictures/food-times/07-password-reset.webp",
+          "thumbnail": "./pictures/food-times/07-password-reset-480.webp",
+          "width": 1440,
+          "height": 1050,
+          "title": "Forgot password",
+          "caption": "The original login modal switches to a username-based reset-link request. No request is submitted.",
+          "alt": "Forgot password: The original login modal switches to a username-based reset-link request. No request is submitted."
+        },
+        {
+          "src": "./pictures/food-times/03-details.webp",
+          "thumbnail": "./pictures/food-times/03-details-480.webp",
+          "width": 1440,
+          "height": 1050,
+          "title": "Restaurant details",
+          "caption": "The original detail template shows location, contact information and review actions. Sample restaurant data and an empty review state are used.",
+          "alt": "Restaurant details: The original detail template shows location, contact information and review actions. Sample restaurant data and an empty review state are used."
+        },
+        {
+          "src": "./pictures/food-times/08-write-review.webp",
+          "thumbnail": "./pictures/food-times/08-write-review-480.webp",
+          "width": 1440,
+          "height": 1050,
+          "title": "Write a review",
+          "caption": "The original review form includes a rating selector, title and review text. The example review is fictional and is not submitted.",
+          "alt": "Write a review: The original review form includes a rating selector, title and review text. The example review is fictional and is not submitted."
+        },
+        {
+          "src": "./pictures/food-times/09-account.webp",
+          "thumbnail": "./pictures/food-times/09-account-480.webp",
+          "width": 1440,
+          "height": 1050,
+          "title": "Account settings",
+          "caption": "The original account-editing page with profile-picture upload and editable personal details, populated with fictional information.",
+          "alt": "Account settings: The original account-editing page with profile-picture upload and editable personal details, populated with fictional information."
+        }
+      ],
+      "links": [
+        {
+          "label": "Source code",
+          "href": "https://github.com/how2fps/restaurant-project"
+        }
+      ],
+      "brief": {
+        "features": [
+          "My first development project",
+          "Restaurant and cuisine search",
+          "Accounts, profiles and restaurant reviews"
+        ]
+      },
+      "technologyGroups": [
+        {
+          "title": "Turn browsing into a complete flow",
+          "description": "The homepage introduces restaurants through a cuisine picker and cards. On desktop, hovering lifts and scales the card front while expanding a dark panel behind it to reveal the rating and review action. A separate listing view supports restaurant-name and cuisine filtering. Opening a restaurant brings together its location, contact details, website, average rating and reviews. EJS templates generate the pages on the server; SCSS and compiled CSS provide the responsive orange-and-dark visual design.",
+          "technologies": [
+            "EJS",
+            "SCSS",
+            "JavaScript"
+          ]
+        },
+        {
+          "title": "Connect pages, controllers and a database",
+          "description": "Express routes separate restaurants, cuisines, users and reviews. Controllers request data from model classes, then render templates or return responses. MySQL queries join restaurants with cuisine relationships and reviews, calculate average ratings and bind query parameters for lookups. This structure connected the interface work to persistent application data.",
+          "technologies": [
+            "Node.js",
+            "Express",
+            "MySQL"
+          ]
+        },
+        {
+          "title": "Add accounts and user contributions",
+          "description": "The project includes registration, login, account editing, profile pictures and review creation, editing and deletion. Session middleware stores sessions in MySQL, authentication middleware protects contribution routes and the server includes CSRF middleware. Multer handles profile-picture uploads.",
+          "technologies": [
+            "Express sessions",
+            "Multer",
+            "EJS"
+          ]
+        },
+        {
+          "title": "Where my development journey started",
+          "description": "Food Times was my first development project. Building a connected browsing, account and review flow meant working across HTML templates, responsive styling, browser JavaScript, server routes and SQL models. Keeping it in this portfolio shows the starting point alongside my later mobile, game and full-stack projects. The previews preserve the original templates rather than redesigning this early work.",
+          "technologies": [
+            "First project",
+            "Full-stack fundamentals"
+          ]
+        }
+      ]
     }
   ],
   "biography": [

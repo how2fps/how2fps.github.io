@@ -1,0 +1,10 @@
+{
+  "repository": "https://github.com/how2fps/SpaceFartz",
+  "commit": "eb59379afaced21b59be53f147cdfb866f794373",
+  "note": "Original artwork, manually arranged source-based scenes; not gameplay capture. Award supplied by Finn.",
+  "generator": [
+    "tools/render-fuzzer-preview.py",
+    "tools/render-added-projects.cjs"
+  ],
+  "data": "Fictional preview data; no production services accessed."
+}

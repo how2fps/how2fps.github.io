@@ -1,0 +1,10 @@
+{
+  "repository": "https://github.com/how2fps/fuzzer",
+  "commit": "b45f1c32af8f71f494c75567f331894c9dae45d7",
+  "note": "Original Rich renderer with illustrative counters; not a fuzzing benchmark.",
+  "generator": [
+    "tools/render-fuzzer-preview.py",
+    "tools/render-added-projects.cjs"
+  ],
+  "data": "Fictional preview data; no production services accessed."
+}

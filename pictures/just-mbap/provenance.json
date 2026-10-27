@@ -1,0 +1,10 @@
+{
+  "repository": "https://github.com/how2fps/Just-mbap",
+  "commit": "41b790ea8381a76a7cf9d62e7d307d5651f41716",
+  "note": "Ionic template-based SVG reconstructions with fictional content; not native app captures.",
+  "generator": [
+    "tools/render-fuzzer-preview.py",
+    "tools/render-added-projects.cjs"
+  ],
+  "data": "Fictional preview data; no production services accessed."
+}
