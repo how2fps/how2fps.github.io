@@ -865,35 +865,6 @@ window.portfolioData = {
       }
     },
     {
-      "id": "tappin-queen",
-      "title": "Tappin Queen",
-      "category": "Physical prototype",
-      "description": "Tappin Queen, shown with the team and physical prototype.",
-      "technologies": [],
-      "technologyGroups": [],
-      "previewNote": "",
-      "screenshots": [],
-      "links": [
-        {
-          "label": "Open image",
-          "href": "./pictures/optimized/TappinQueen.webp"
-        }
-      ],
-      "image": {
-        "src": "./pictures/optimized/TappinQueen.webp",
-        "alt": "The Tappin Queen team presenting their physical prototype",
-        "width": 960,
-        "height": 639
-      },
-      "brief": {
-        "role": "Team project · physical prototype",
-        "features": [
-          "Physical prototype",
-          "Team exhibition presentation"
-        ]
-      }
-    },
-    {
       "id": "sutdoki",
       "title": "SutDoki",
       "category": "SUTD · Python visual novel",
