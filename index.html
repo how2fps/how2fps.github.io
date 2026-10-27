@@ -352,8 +352,12 @@
             id="view-status"
         ></p>
         <dialog class="image-viewer" id="image-viewer" aria-label="Image preview">
-            <div class="image-viewer-toolbar"><span id="image-viewer-title">Image preview</span><button class="icon-button" id="image-viewer-close" type="button" aria-label="Close image preview" autofocus><svg aria-hidden="true"><use href="#i-close" /></svg></button></div>
-            <img id="image-viewer-image" alt="" />
+            <div class="image-viewer-toolbar"><span id="image-viewer-title">Image preview</span><span id="image-viewer-position" role="status" aria-live="polite"></span><button class="icon-button" id="image-viewer-close" type="button" aria-label="Close image preview" autofocus><svg aria-hidden="true"><use href="#i-close" /></svg></button></div>
+            <div class="image-viewer-stage">
+                <img id="image-viewer-image" alt="" />
+                <button class="icon-button image-viewer-nav image-viewer-previous" id="image-viewer-previous" type="button" aria-label="Previous image" hidden><svg aria-hidden="true"><use href="#i-arrow-right" /></svg></button>
+                <button class="icon-button image-viewer-nav image-viewer-next" id="image-viewer-next" type="button" aria-label="Next image" hidden><svg aria-hidden="true"><use href="#i-arrow-right" /></svg></button>
+            </div>
         </dialog>
         <script src="./image-viewer.js" defer></script>
         <dialog class="command-palette" id="command-palette" aria-label="Quick switcher">
