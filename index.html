@@ -1,185 +1,366 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
-       <meta charset="UTF-8">
-       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-       <meta http-equiv="X-UA-Compatible" content="ie=edge">
-       <title>Finn's Portfolio</title>
-       <link rel="stylesheet" href="./style.css">
-       <link rel="preconnect" href="https://fonts.googleapis.com">
-       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-       <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-
-</head>
-
-<body class="main">
-       <!-- <div class="scrollbar"></div>
-       <div class="scrollbar-container">
-              <span class="scroll-text">
-                     <i class="fa fa-long-arrow-right arrow1"></i>
-              </span>
-              <a class="scrollbar-section borderless" href="#projects-section"></a>
-       </div> -->
-
-
-       <div class="hero-container">
-              <div class="nav">
-                     <span class="intro-message">Hello, I'm Finn, <br> Creating great user experiences is my
-                            why.</span>
-                     <div class="nav-items">
-                            <a target="_blank"
-                                   href="https://drive.google.com/file/d/1pR3n5jk8vBODqBIfcAXHcp7joVavwtRA/view"
-                                   class="nav-resume">My Resume (Google Docs PDF)</a>
-                            <a class="nav-email">hearthstonesigh@gmail.com</a>
-                     </div>
-              </div>
-              <div class="projects-section" id="projects-section">
-
-
-                     <h1 class="projects-header">Projects.</h1>
-                     <div class="projects-showcase">
-                            <div class="project-card">
-                                   <div class="project-image-container">
-                                          <span class="project-title">Smart Device Manager</span>
-                                          <img class="project-image"
-                                                 src="pictures/ProjectScreenshots/GovTechProject.png" alt="">
-                                   </div>
-                                   <div class="project-description">
-                                          <p class="project-description-main">Interactive floor plan where users can
-                                                 view the status and adjust settings of IoT devices. Done for GovTech.
-                                                 <br><br>
-                                                 Used LeafletJS for the map interface, and MUI for the different
-                                                 mini-components.
-                                          </p>
-                                          <p class="tech-description">Technologies used: ReactJS, Redux, Leaflet, AntD,
-                                                 MUI</p>
-                                   </div>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta
+            name="description"
+            content="Finn's web development portfolio. Explore SproutTeach, Envorya POS, GovTech work, and more in a familiar project workspace."
+        />
+        <meta name="theme-color" content="#181818" />
+        <title>Finn — Web Developer</title>
+        <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+        <script src="./theme.js?v=3"></script>
+        <link rel="stylesheet" href="./workspace.css?v=3" />
+        <script src="./portfolio-data.js" defer></script>
+        <script src="./workspace.js" defer></script>
+        <script src="./command-palette.js" defer></script>
+    </head>
+    <body>
+        <svg
+            class="icon-defs"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true"
+        >
+            <defs>
+                <symbol id="i-home" viewBox="0 0 24 24">
+                    <path d="m3 10 9-7 9 7v10H15v-6H9v6H3Z" />
+                </symbol>
+                <symbol id="i-folder" viewBox="0 0 24 24">
+                    <path
+                        d="M3 7V5a1 1 0 0 1 1-1h6l2 3h8a1 1 0 0 1 1 1v11a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1Z"
+                    />
+                    <path d="M3 10h18" />
+                </symbol>
+                <symbol id="i-search" viewBox="0 0 24 24">
+                    <circle cx="10.5" cy="10.5" r="6.5" />
+                    <path d="m16 16 5 5" />
+                </symbol>
+                <symbol id="i-person" viewBox="0 0 24 24">
+                    <circle cx="12" cy="8" r="4" />
+                    <path d="M4 21v-2a8 8 0 0 1 16 0v2" />
+                </symbol>
+                <symbol id="i-grid" viewBox="0 0 24 24">
+                    <rect x="3" y="3" width="7" height="7" rx="1" />
+                    <rect x="14" y="3" width="7" height="7" rx="1" />
+                    <rect x="3" y="14" width="7" height="7" rx="1" />
+                    <rect x="14" y="14" width="7" height="7" rx="1" />
+                </symbol>
+                <symbol id="i-panel-left" viewBox="0 0 24 24">
+                    <rect x="3" y="4" width="18" height="16" rx="2" />
+                    <path d="M9 4v16" />
+                </symbol>
+                <symbol id="i-panel-right" viewBox="0 0 24 24">
+                    <rect x="3" y="4" width="18" height="16" rx="2" />
+                    <path d="M15 4v16" />
+                </symbol>
+                <symbol id="i-arrow-up-right" viewBox="0 0 24 24">
+                    <path d="M6 18 18 6M6 6h12v12" />
+                </symbol>
+                <symbol id="i-arrow-right" viewBox="0 0 24 24">
+                    <path d="M4 12h16m-6-6 6 6-6 6" />
+                </symbol>
+                <symbol id="i-send" viewBox="0 0 24 24">
+                    <path d="M12 20V4m-6 6 6-6 6 6" />
+                </symbol>
+                <symbol id="i-close" viewBox="0 0 24 24">
+                    <path d="m6 6 12 12M6 18 18 6" />
+                </symbol>
+                <symbol id="i-link" viewBox="0 0 24 24">
+                    <path
+                        d="m10 13 4-4m-7 6-2 2a4 4 0 0 0 6 6l4-4a4 4 0 0 0 0-6M9 11a4 4 0 0 1 0-6l4-4a4 4 0 0 1 6 6l-2 2"
+                        transform="translate(0 1) scale(.9)"
+                    />
+                </symbol>
+                <symbol id="i-globe" viewBox="0 0 24 24">
+                    <circle cx="12" cy="12" r="9" />
+                    <ellipse cx="12" cy="12" rx="4" ry="9" />
+                    <path d="M3 12h18" />
+                </symbol>
+                <symbol id="i-sprout" viewBox="0 0 24 24">
+                    <path
+                        d="M12 21v-9m0 3C6 15 3 10 4 5c6 0 10 3 8 10Zm0-3c0-6 4-9 10-9 0 6-3 10-10 9Z"
+                    />
+                </symbol>
+                <symbol id="i-receipt" viewBox="0 0 24 24">
+                    <path
+                        d="M6 3h12v18l-3-2-3 2-3-2-3 2V3Zm4 5h4m-4 4h4m-4 4h2"
+                    />
+                </symbol>
+                <symbol id="i-github" viewBox="0 0 24 24">
+                    <path
+                        d="M9 19c-4 1-4-2-6-2m12 5v-4a4 4 0 0 0-1-3c4-.4 7-2 7-6a5 5 0 0 0-1.5-3.5A4 4 0 0 0 19 2s-2 0-4 1.5a13 13 0 0 0-6 0C7 2 5 2 5 2a4 4 0 0 0-.5 3.5A5 5 0 0 0 3 9c0 4 3 5.6 7 6a4 4 0 0 0-1 3v4"
+                    />
+                </symbol>
+                <symbol id="i-leetcode" viewBox="0 0 24 24">
+                    <path d="m15 3-9 9a4 4 0 0 0 0 6l3 3a4 4 0 0 0 6 0l2-2M8 10l3-3a4 4 0 0 1 6 0l2 2M10 15h11" />
+                </symbol>
+                <symbol id="i-linkedin" viewBox="0 0 24 24">
+                    <rect x="3" y="3" width="18" height="18" rx="2" />
+                    <path d="M7 10v7m0-10v.01M11 17v-7m0 3a3 3 0 0 1 6 0v4" />
+                </symbol>
+                <symbol id="i-moon" viewBox="0 0 24 24">
+                    <path d="M20.5 13.3A8.5 8.5 0 0 1 10.7 3.5 8.5 8.5 0 1 0 20.5 13.3Z" />
+                </symbol>
+                <symbol id="i-sun" viewBox="0 0 24 24">
+                    <circle cx="12" cy="12" r="4" />
+                    <path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.4 1.4m11.2 11.2L19 19M5 19l1.4-1.4M17.6 6.4 19 5" />
+                </symbol>
+            </defs>
+        </svg>
+        <noscript>Please enable JavaScript to explore this portfolio.</noscript>
+        <div class="app">
+            <nav class="rail" aria-label="Workspace shortcuts">
+                <a
+                    class="icon-button active"
+                    href="#home"
+                    aria-label="Portfolio home"
+                    title="Home"
+                    ><svg aria-hidden="true"><use href="#i-home" /></svg
+                ></a>
+                <button
+                    class="icon-button"
+                    id="sidebar-toggle"
+                    type="button"
+                    aria-label="Toggle project sidebar"
+                    aria-controls="sidebar"
+                    aria-expanded="true"
+                    title="Projects"
+                >
+                    <svg aria-hidden="true"><use href="#i-panel-left" /></svg>
+                </button>
+                <a
+                    class="icon-button"
+                    href="https://github.com/how2fps"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Finn on GitHub"
+                    title="GitHub"
+                    ><svg aria-hidden="true"><use href="#i-github" /></svg
+                ></a>
+                <a
+                    class="icon-button"
+                    href="https://leetcode.com/u/finnyap_/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Finn on LeetCode"
+                    title="LeetCode"
+                    ><svg aria-hidden="true"><use href="#i-leetcode" /></svg
+                ></a>
+                <a
+                    class="icon-button"
+                    href="https://www.linkedin.com/in/finn-yap-0a686b217/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Finn on LinkedIn"
+                    title="LinkedIn"
+                    ><svg aria-hidden="true"><use href="#i-linkedin" /></svg
+                ></a>
+                <span class="rail-divider" aria-hidden="true"></span>
+                <div class="rail-spacer"></div>
+                <a
+                    class="avatar"
+                    href="#about"
+                    aria-label="About Finn"
+                    title="Finn"
+                    >F</a
+                >
+            </nav>
+            <button
+                class="mobile-backdrop"
+                id="sidebar-backdrop"
+                type="button"
+                aria-label="Close project navigation"
+            ></button>
+            <aside
+                class="sidebar"
+                id="sidebar"
+                aria-label="Portfolio navigation"
+            >
+                <header class="sidebar-header">
+                    <div>
+                        <a class="brand" href="#home">Finn</a>
+                    </div>
+                </header>
+                <nav
+                    class="sidebar-shortcuts"
+                    aria-label="About this portfolio"
+                >
+                    <a class="nav-action" href="#home"
+                        ><svg aria-hidden="true"><use href="#i-home" /></svg
+                        >Welcome</a
+                    >
+                    <a class="nav-action" href="#about"
+                        ><svg aria-hidden="true"><use href="#i-person" /></svg
+                        >About me</a
+                    >
+                </nav>
+                <div class="projects-label">
+                    <span>Projects</span><span id="project-count">8</span>
+                </div>
+                <nav
+                    class="project-navigation"
+                    id="project-navigation"
+                    aria-label="Projects"
+                >
+                    <p class="loading-note">Loading projects…</p>
+                </nav>
+                <section
+                    class="sidebar-extras"
+                    aria-labelledby="sidebar-more-heading"
+                >
+                    <h2 id="sidebar-more-heading">More</h2>
+                    <nav class="sidebar-links" aria-label="More about Finn">
+                        <a class="sidebar-link" href="#links"
+                            >Links &amp; elsewhere</a
+                        >
+                        <a
+                            class="sidebar-link"
+                            href="https://github.com/how2fps"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            >GitHub profile ↗</a
+                        >
+                    </nav>
+                </section>
+            </aside>
+            <main class="main" id="main">
+                <header class="topbar">
+                    <svg aria-hidden="true"><use href="#i-folder" /></svg>
+                    <h1 id="page-title">Finn's portfolio</h1>
+                    <div class="topbar-actions">
+                        <button
+                            class="icon-button"
+                            id="details-toggle"
+                            type="button"
+                            aria-label="Toggle project brief"
+                            aria-controls="details"
+                            aria-expanded="false"
+                            title="Project brief"
+                        >
+                            <svg aria-hidden="true">
+                                <use href="#i-panel-right" />
+                            </svg>
+                        </button>
+                    </div>
+                </header>
+                <div class="body-layout">
+                    <section
+                        class="conversation"
+                        aria-label="Portfolio content"
+                    >
+                        <div
+                            class="conversation-scroll"
+                            id="conversation-scroll"
+                        >
+                            <div class="content" id="content">
+                                <section class="welcome">
+                                    <h2>
+                                        Hey, I'm Finn.<br /><span
+                                            >I make things easier to use.</span
+                                        >
+                                    </h2>
+                                    <p class="body-copy">
+                                        I'm a web developer who cares about the
+                                        small details. Explore my projects using
+                                        the sidebar.
+                                    </p>
+                                </section>
                             </div>
-                            <div class="project-card">
-                                   <div class="project-image-container">
-                                          <span class="project-title">kNow</span>
-                                          <img class="project-image" src="pictures/ProjectScreenshots/kNow.png" alt="">
-                                   </div>
-                                   <div class="project-description">
-                                          <p class="project-description-main">Location-based social media app that
-                                                 allows users to find nearby places of interest based on other users'
-                                                 stories and get directions.
-                                                 <br><br>
-                                                 Given a monetary award from Singtel.
-                                          </p>
-                                          <p class="tech-description">Technologies used: Java, Google Maps API,
-                                                 Firebase</p>
-                                   </div>
-                            </div>
-                            <div class="project-card">
-                                   <div class="project-image-container">
-                                          <span class="project-title">Pic'A'Pixel</span>
-                                          <img class="project-image" src="pictures/ProjectScreenshots/Pic'A'Pixel.jpg"
-                                                 alt="">
-                                   </div>
-                                   <div class="project-description">
-                                          <p class="project-description-main">Arduino-based pixel board that allows
-                                                 users to create pixel art at a bus-stop using a web app created by
-                                                 ReactJS, Node.js, Firebase with websockets.
-                                                 <br><br>
-                                                 Used proximity sensors to detect bus arrivals and departures.
-                                          </p>
-                                          <p class="tech-description">Technologies used: Arduino, C++, ReactJS, Node.js,
-                                                 Express, Firebase, Websockets</p>
-                                   </div>
-                            </div>
-                            <div class="project-card">
-                                   <div class="project-image-container">
-                                          <span class="project-title">Tappin Queen</span>
-                                          <img class="project-image" src="pictures/ProjectScreenshots/TappinQueen.jpg"
-                                                 alt="">
-                                   </div>
-                                   <div class="project-description">
-                                          <p class="project-description-main">Harder version of Simon memory game made
-                                                 with FPGA and assembly. Created finite state machines to deal with the
-                                                 different stages.
-                                          </p>
-                                          <p class="tech-description">Technologies used: FPGA, C, Lucid</p>
-                                   </div>
-                            </div>
-                            <div class="project-card">
-                                   <div class="project-image-container">
-                                          <span class="project-title">SutDoki</span>
-                                          <img class="project-image" src="pictures/ProjectScreenshots/SutDoki.jpg"
-                                                 alt="">
-                                   </div>
-                                   <div class="project-description">
-                                          <p class="project-description-main">Visual Novel game where players can
-                                                 experience the life of a SUTD student. Players can choose their own
-                                                 path.
-                                                 <br><br> Created a function that allowed teammates to place a formatted
-                                                 script in as a parameter and turn it into a proper game.
-                                          </p>
-                                          <p class="tech-description">Technologies used: Python, tkinter</p>
-                                   </div>
-                            </div>
-                            <div class="project-card">
-                                   <div class="project-image-container">
-                                          <span class="project-title">InvMngr</span>
-                                          <img class="project-image" src="/pictures/ProjectScreenshots/InvMngr.png"
-                                                 alt="">
-                                   </div>
-                                   <div class="project-description">
-                                          <p class="project-description-main">Full stack inventory management
-                                                 application made with Angular, RxJS, Node.js and MongoDB.
-                                                 <br><br>
-                                                 Done in Temasek Polytechnic.
-                                          </p>
-                                          <p class="tech-description">Technologies used: TypeScript, MongoDB, Angular,
-                                                 RxJS, Express, Node.js, JWTs</p>
-                                   </div>
-                            </div>
-                            <div class="project-card">
-                                   <div class="project-image-container">
-                                          <span class="project-title">Space****z</span>
-                                          <img class="project-image" src="/pictures/ProjectScreenshots/SpaceFartz.png"
-                                                 alt="">
-                                   </div>
-                                   <div class="project-description">
-                                          <p class="project-description-main">2D space shooter game where players can
-                                                 control a spaceship and shoot enemies. Players can upgrade their
-                                                 spaceship and unlock new weapons.
-                                                 <br><br>
-                                                 Done for MindSports club competition. (2nd)
-                                          </p>
-                                          <p class="tech-description">Technologies used: Godot, GDScript</p>
-                                   </div>
-                            </div>
-
-                     </div>
-              </div>
-       </div>
-       <div class="about-me-section" id="about-me-section">
-              <div class="about-me-description-container">
-                     <h1 class="about-me-description-header">About Me.</h1>
-                     <p class="about-me-description-message">
-                            I am a year 2 student in SUTD, pursuing a degree in Computer Science.
-                            <br><br>
-                            My programming journey began at Temasek Polytechnic in
-                            2020 when I took online courses on web development independently.
-                            <br></br>
-                            My strong
-                            distaste for minor inconveniences built my passion for creating great user
-                            interfaces and experiences.
-                            <br><br>
-                            When I’m not polishing my programming skills, I am either playing games like
-                            Teamfight Tactics, MTG (EDH), or at the gym.
-
-                     </p>
-              </div>
-              <div class="about-me-image-container">
-                     <img class="about-me-image" src="pictures/face.png" alt="Me">
-                     <span class="about-me-image-caption">Me when I'm not doing calculus</span>
-              </div>
-       </div>
-
-       <script src="index.js"></script>
-</body>
-
+                        </div>
+                        <div class="composer-wrap">
+                            <form
+                                class="composer"
+                                id="explore-form"
+                                role="search"
+                                aria-label="Search portfolio"
+                            >
+                                <label class="sr-only" for="explore-input"
+                                    >Search projects, technologies, or
+                                    information about Finn</label
+                                >
+                                <input
+                                    id="explore-input"
+                                    type="search"
+                                    placeholder="Explore my projects…"
+                                    autocomplete="off"
+                                    maxlength="240"
+                                />
+                                <div class="composer-bottom">
+                                    <button
+                                        class="composer-tool"
+                                        type="button"
+                                        data-query="All projects"
+                                    >
+                                        <svg aria-hidden="true">
+                                            <use href="#i-grid" /></svg
+                                        >All projects</button
+                                    >
+                                    <div class="composer-actions">
+                                        <div class="theme-picker" id="theme-picker">
+                                            <button class="theme-trigger" id="theme-toggle" type="button" aria-haspopup="menu" aria-expanded="false" aria-controls="theme-menu" aria-label="Colour theme: Moonlight">
+                                                <svg id="theme-symbol" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-moon" /></svg>
+                                                <span id="theme-label">Moonlight</span>
+                                                <svg class="theme-chevron" viewBox="0 0 16 16" aria-hidden="true"><path d="m5 6 3 3 3-3" /></svg>
+                                            </button>
+                                            <div class="theme-menu" id="theme-menu" role="menu" aria-label="Colour theme" hidden>
+                                                <p class="theme-menu-heading" aria-hidden="true">Appearance</p>
+                                                <button class="theme-option" type="button" role="menuitemradio" aria-checked="true" tabindex="-1" data-theme-choice="dark">
+                                                    <span class="theme-option-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#i-moon" /></svg></span>
+                                                    <span class="theme-option-copy"><strong>Moonlight</strong><small>Dark theme</small></span>
+                                                    <span class="theme-check" aria-hidden="true">✓</span>
+                                                </button>
+                                                <button class="theme-option" type="button" role="menuitemradio" aria-checked="false" tabindex="-1" data-theme-choice="light">
+                                                    <span class="theme-option-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#i-sun" /></svg></span>
+                                                    <span class="theme-option-copy"><strong>Sunshine</strong><small>Light theme</small></span>
+                                                    <span class="theme-check" aria-hidden="true">✓</span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <button
+                                        class="send-button"
+                                        type="submit"
+                                        aria-label="Search"
+                                    >
+                                        <svg aria-hidden="true">
+                                            <use href="#i-send" />
+                                        </svg>
+                                    </button>
+                                    </div>
+                                </div>
+                            </form>
+                            <p class="composer-caption">
+                                Powered by curiosity. Occasionally by questionable prompts.
+                                <button class="palette-shortcut" type="button" data-open-palette aria-label="Open command palette"><kbd>Ctrl K</kbd></button>
+                            </p>
+                        </div>
+                    </section>
+                    <aside
+                        class="details"
+                        id="details"
+                        aria-label="Project brief"
+                    >
+                        <div id="details-content"></div>
+                    </aside>
+                </div>
+            </main>
+        </div>
+        <p
+            class="sr-only"
+            role="status"
+            aria-live="polite"
+            id="view-status"
+        ></p>
+        <dialog class="command-palette" id="command-palette" aria-label="Quick switcher">
+            <div class="palette-search-row">
+                <svg aria-hidden="true"><use href="#i-search" /></svg>
+                <input id="palette-input" type="search" placeholder="Jump to a project, link or theme…" autocomplete="off" spellcheck="false" maxlength="160" role="combobox" aria-label="Search commands" aria-autocomplete="list" aria-expanded="false" aria-controls="palette-results" autofocus />
+                <button class="icon-button" type="button" id="palette-close" aria-label="Close command palette"><svg aria-hidden="true"><use href="#i-close" /></svg></button>
+            </div>
+            <div class="palette-results" id="palette-results" role="listbox" aria-label="Commands"></div>
+            <p class="palette-empty" id="palette-empty" hidden>No matches. Try a project name, “GitHub” or “Sunshine”.</p>
+            <div class="palette-footer"><span><kbd>↑</kbd><kbd>↓</kbd> navigate <kbd>Enter</kbd> open</span><span><kbd>Esc</kbd> close</span></div>
+            <p class="sr-only" id="palette-status" role="status" aria-live="polite"></p>
+        </dialog>
+    </body>
 </html>
