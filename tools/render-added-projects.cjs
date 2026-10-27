@@ -63,12 +63,18 @@ async function mobilePreview(mode) {
 async function restaurantPreviews() {
  const base=path.resolve('tmp/restaurant-project');
  const restaurants=['Sample Bistro','Garden Kitchen','Noodle Corner','The Lunch Table','Spice House','Evening Cafe'].map((name,i)=>({_id:i+1,name,cuisineName:['Western','Vegetarian','Chinese','Western','Indian','Western'][i],avgRating:4,pictureUrl:'/images/hero-mobile.jpg',location:'Sample address, Singapore',telephoneNo:'0000 0000',website:'example.com'}));
+ const reviews=[
+  {username:'Alex (demo)',rating:5,title:'A lovely lunch break',content:'A relaxed lunch spot with friendly service. The food arrived promptly and the atmosphere made it easy to catch up with friends.'},
+  {username:'Jamie (demo)',rating:4,title:'Comfort food and a welcoming atmosphere',content:'A good choice for a casual meal. I enjoyed the generous portions and would come back to try something different.'},
+  {username:'Sam (demo)',rating:4,title:'Worth another visit',content:'The staff were helpful and the seating was comfortable. A little busy at lunchtime, but a pleasant experience overall.'}
+ ].map((r,i)=>({...r,_id:i+1,userId:i+1,userPicture:'/preview-avatar.svg',datePosted:'27 October 2026'+' '.repeat(35)}));
  const pages={};
  for(const [route,file] of [['/','index'],['/guest','index'],['/details','res-details'],['/review','add-review'],['/account','edit-account']]) {
-  pages[route]=await ejs.renderFile(path.join(base,'views',file+'.ejs'),{restaurants,restaurant:restaurants[0],reviews:[],search:false,editing:false,message:'',validationErrors:[],user:route==='/guest'?null:{_id:1,username:'demo_user',firstName:'Alex',lastName:'Sample',email:'alex@example.com',gender:'Not specified',mobileNumber:'00000000',address:'Sample address, Singapore',profilePictureUrl:'/images/hero-mobile.jpg'},csrfToken:'preview-only'});
+  pages[route]=await ejs.renderFile(path.join(base,'views',file+'.ejs'),{restaurants,restaurant:restaurants[0],reviews,search:false,editing:false,message:'',validationErrors:[],user:route==='/guest'?null:{_id:1,username:'demo_user',firstName:'Alex',lastName:'Sample',email:'alex@example.com',gender:'Not specified',mobileNumber:'00000000',address:'Sample address, Singapore',profilePictureUrl:'/images/hero-mobile.jpg'},csrfToken:'preview-only'});
  }
  const server=http.createServer((req,res)=>{
   const route=new URL(req.url,'http://localhost').pathname;
+  if(route==='/preview-avatar.svg'){res.setHeader('Content-Type','image/svg+xml');res.end('<svg xmlns="http://www.w3.org/2000/svg" width="120" height="120"><rect width="120" height="120" fill="#ffde87"/><circle cx="60" cy="43" r="21" fill="#2c3038"/><path d="M18 120v-15a42 42 0 0 1 84 0v15" fill="#2c3038"/></svg>');return;}
   if(pages[route]){res.setHeader('Content-Type','text/html');res.end(pages[route]);return;}
   const file=path.resolve(base,'public','.'+route);
   if(!file.startsWith(path.join(base,'public')+path.sep)||!fs.existsSync(file)||!fs.statSync(file).isFile()){res.writeHead(404);res.end();return;}
@@ -85,7 +91,20 @@ async function restaurantPreviews() {
    // External logo is unavailable offline. Use the template's own page title as text.
    await page.locator('.logo').evaluate(el=>{const label=document.createElement('span');label.textContent='FOOD TIMES';label.style.cssText='color:#ffde87;font-size:24px;font-weight:900;white-space:nowrap';el.replaceWith(label);});
    // Offline equivalents for the externally hosted icon font used by the templates.
-   await page.addStyleTag({content:'.fa-star:before{content:"★"}.fa-search:before{content:"⌕"}.fa-times:before{content:"×"}.fa-eye:before{content:"◉"}.fa-eye-slash:before{content:"◉"}'});
+   await page.addStyleTag({content:'.fa-star:before{content:"★"}.fa-search:before{content:"⌕"}.fa-times:before{content:"×"}.fa-eye:before{content:"◉"}.fa-eye-slash:before{content:"◉"}.fa-edit:before{content:"Edit"}.fa-trash-alt:before{content:"Delete"}'});
+   // Preview-only repair: the old negative letter spacing collapses heading letters
+   // when the original remote display font is unavailable. Keep the sliding panels,
+   // but lay out each form vertically with readable horizontal headings.
+   await page.addStyleTag({content:`
+    .main-container-for-login-signup .form-container h1{writing-mode:horizontal-tb;text-orientation:mixed;letter-spacing:normal;transform:none;font-family:Arial,sans-serif;font-size:30px;line-height:1.2;margin:0 0 24px;text-align:center}
+    .main-container-for-login-signup .non-reset{flex-direction:column;width:100%;padding:32px;justify-content:center}
+    .main-container-for-login-signup .sign-up-container{flex-direction:column;padding:24px 36px;justify-content:center}
+    .main-container-for-login-signup .sign-up-container h1{margin-bottom:18px}
+    .main-container-for-login-signup .form-container form{width:100%;max-width:300px}
+    .main-container-for-login-signup .login-container input{width:100%}
+    .main-container-for-login-signup .login-container button,.main-container-for-login-signup .sign-up-container button{transform:none;margin-top:16px}
+    .main-container-for-login-signup .reset h1{font-size:25px}
+   `});
   };
   for(const [route,name] of [['/','01-home'],['/details','03-details']]) {
    await visit(route);

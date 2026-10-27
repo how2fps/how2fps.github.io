@@ -15,6 +15,7 @@ Alternatively, run `node server.mjs` and open http://localhost:3000.
 - `workspace.js`: project navigation, screenshot galleries, local search and fixed sidebar links.
 - `theme.js`: Moonlight/Sunshine theme selection, restored before styles load and remembered locally.
 - `command-palette.js`: Ctrl+K / Cmd+K quick switcher for projects, pages, profile links and themes. Use arrow keys and Enter; Escape closes the native modal. The caption shortcut also opens it.
+- `image-viewer.js`: opens project images and full-size links in an on-page modal. Close with the X button, Escape or the backdrop; focus returns to the opener.
 - `portfolio-data.js`: all eleven project descriptions, technology explanations, screenshots and biography. Edit this file to change project content.
 - `pictures/`: project images and thumbnails.
 
@@ -39,6 +40,8 @@ SproutTeach and Envorya POS retain their screenshot walkthroughs and frontend/ba
 
 `pictures/{fuzzer,spacefartz,just-mbap,food-times}/provenance.json` records source commits and preview limitations. `tools/render-added-projects.cjs` produces WebP assets and thumbnails; its EJS screenshots run in an isolated headless browser, with no desktop interaction. Source checkouts and preview dependencies remain in ignored `tmp/`.
 
+Food Times previews include a CSS layout repair for login/sign-up: horizontal headings replace the old vertical headings with negative letter spacing, which collapsed without the remote font. The sliding panels remain. Restaurant details contain three fictional reviews with generated neutral avatars; no reviews or account forms are submitted to a service.
+
 ## Publish
 
-Deploy `index.html`, `portfolio-data.js`, `workspace.js`, `theme.js`, `command-palette.js`, `workspace.css`, `favicon.svg` and `pictures/` to GitHub Pages or another static host. No Node server is needed in production.
+Deploy `index.html`, `portfolio-data.js`, `workspace.js`, `theme.js`, `command-palette.js`, `image-viewer.js`, `workspace.css`, `favicon.svg` and `pictures/` to GitHub Pages or another static host. No Node server is needed in production.

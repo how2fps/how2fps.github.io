@@ -67,14 +67,14 @@ const additions=[
   id:'food-times',title:'Food Times',category:'My first development project · Restaurant discovery and reviews',
   description:'My first development project: a restaurant discovery and review website. Food Times lets visitors browse restaurants, search by name and filter by cuisine, then open restaurant details and read reviews. Account features connect the browsing experience to writing reviews and managing a profile. It marks the beginning of my journey from learning web development to building a full application.',
   technologies:['JavaScript','Node.js','Express','EJS','MySQL','SCSS','Express sessions','Multer'],
-  previewNote:'Offline screenshots of the original EJS templates, CSS hover effects and login/sign-up interactions, using fictional data. Bundled imagery stands in for restaurant photos; the remote logo and icons use text equivalents and external fonts are unavailable. Account forms are shown without submitting them or connecting to a database or email service.',
+  previewNote:'Offline screenshots of the original EJS templates, CSS hover effects and login/sign-up interactions, using fictional data. Bundled imagery stands in for restaurant photos; the remote logo and icons use text equivalents and external fonts are unavailable. Preview-only layout fixes keep the login and sign-up headings readable. Reviews are fictional. Account forms are shown without submitting them or connecting to a database or email service.',
   screenshots:await Promise.all([
    shot('food-times','01-home','Food Times homepage','The original orange-and-dark homepage, cuisine selector and restaurant cards, rendered with fictional sample listings.'),
    shot('food-times','04-card-hover','Restaurant card hover','The original CSS lifts the card front and expands the dark panel behind it, revealing the rating and review action.'),
    shot('food-times','05-login','Login','The original login modal opened through the navigation button, with username/password fields and a forgot-password action.'),
    shot('food-times','06-signup','Sign up','The original sliding overlay switches to registration, showing name, email, username, password and contact fields. Names are fictional.'),
    shot('food-times','07-password-reset','Forgot password','The original login modal switches to a username-based reset-link request. No request is submitted.'),
-   shot('food-times','03-details','Restaurant details','The original detail template shows location, contact information and review actions. Sample restaurant data and an empty review state are used.'),
+   shot('food-times','03-details','Restaurant details','The original detail template shows location, contact information and review actions. Three fictional reviews show ratings, review text and the signed-in author’s edit/delete actions.'),
    shot('food-times','08-write-review','Write a review','The original review form includes a rating selector, title and review text. The example review is fictional and is not submitted.'),
    shot('food-times','09-account','Account settings','The original account-editing page with profile-picture upload and editable personal details, populated with fictional information.')]),
   links:[source('Source code','restaurant-project')],brief:{features:['My first development project','Restaurant and cuisine search','Accounts, profiles and restaurant reviews']},
@@ -94,7 +94,7 @@ for(const [dir,checkout,note] of [
  ['fuzzer','fuzzer','Original Rich renderer with illustrative counters; not a fuzzing benchmark.'],
  ['spacefartz','spacefartz','Original artwork, manually arranged source-based scenes; not gameplay capture. Award supplied by Finn.'],
  ['just-mbap','just-mbap','Ionic template-based SVG reconstructions with fictional content; not native app captures.'],
- ['food-times','restaurant-project','Original EJS/CSS and browser JavaScript in a headless browser: homepage, real hover state, login, sign-up, reset-link form, restaurant details, review form and account editing. Fictional data, repeated placeholder imagery, text logo and offline icon equivalents; external requests blocked. No forms submitted.']
+ ['food-times','restaurant-project','Original EJS/CSS and browser JavaScript in a headless browser: homepage, real hover state, login, sign-up, reset-link form, restaurant details, review form and account editing. Fictional data, repeated placeholder imagery, text logo and offline icon equivalents; external requests blocked. Preview-only horizontal form headings repair the old negative-letter-spacing layout. Three fictional reviews populate the detail view. No forms submitted.']
 ]) {
  const commit=execFileSync('git',['-C',`tmp/${checkout}`,'rev-parse','HEAD'],{encoding:'utf8'}).trim();
  fs.writeFileSync(`pictures/${dir}/provenance.json`,JSON.stringify({repository:`https://github.com/how2fps/${checkout==='spacefartz'?'SpaceFartz':checkout==='just-mbap'?'Just-mbap':checkout}`,commit,note,generator:['tools/render-fuzzer-preview.py','tools/render-added-projects.cjs'],data:'Fictional preview data; no production services accessed.'},null,2)+'\n');

@@ -1,7 +1,7 @@
 {
   "repository": "https://github.com/how2fps/restaurant-project",
   "commit": "0ebd8fd4a3db60c192d91a6c7e28ae33bbb96c68",
-  "note": "Original EJS/CSS and browser JavaScript in a headless browser: homepage, real hover state, login, sign-up, reset-link form, restaurant details, review form and account editing. Fictional data, repeated placeholder imagery, text logo and offline icon equivalents; external requests blocked. No forms submitted.",
+  "note": "Original EJS/CSS and browser JavaScript in a headless browser: homepage, real hover state, login, sign-up, reset-link form, restaurant details, review form and account editing. Fictional data, repeated placeholder imagery, text logo and offline icon equivalents; external requests blocked. No forms submitted. Preview-only CSS repairs the collapsed login/sign-up headings with horizontal form layouts. Restaurant details contain three fictional reviews and neutral generated avatars.",
   "generator": [
     "tools/render-fuzzer-preview.py",
     "tools/render-added-projects.cjs"

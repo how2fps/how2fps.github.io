@@ -1287,7 +1287,7 @@ window.portfolioData = {
         "Express sessions",
         "Multer"
       ],
-      "previewNote": "Offline screenshots of the original EJS templates, CSS hover effects and login/sign-up interactions, using fictional data. Bundled imagery stands in for restaurant photos; the remote logo and icons use text equivalents and external fonts are unavailable. Account forms are shown without submitting them or connecting to a database or email service.",
+      "previewNote": "Offline screenshots of the original EJS templates, CSS hover effects and login/sign-up interactions, using fictional data. Bundled imagery stands in for restaurant photos; the remote logo and icons use text equivalents and external fonts are unavailable. Preview-only layout fixes keep the login and sign-up headings readable. Reviews are fictional. Account forms are shown without submitting them or connecting to a database or email service.",
       "screenshots": [
         {
           "src": "./pictures/food-times/01-home.webp",
@@ -1340,7 +1340,7 @@ window.portfolioData = {
           "width": 1440,
           "height": 1050,
           "title": "Restaurant details",
-          "caption": "The original detail template shows location, contact information and review actions. Sample restaurant data and an empty review state are used.",
+          "caption": "The original detail template shows location, contact information and review actions. Three fictional reviews show ratings, review text and the signed-in author’s edit/delete actions.",
           "alt": "Restaurant details: The original detail template shows location, contact information and review actions. Sample restaurant data and an empty review state are used."
         },
         {

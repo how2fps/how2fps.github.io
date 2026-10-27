@@ -351,6 +351,11 @@
             aria-live="polite"
             id="view-status"
         ></p>
+        <dialog class="image-viewer" id="image-viewer" aria-label="Image preview">
+            <div class="image-viewer-toolbar"><span id="image-viewer-title">Image preview</span><button class="icon-button" id="image-viewer-close" type="button" aria-label="Close image preview" autofocus><svg aria-hidden="true"><use href="#i-close" /></svg></button></div>
+            <img id="image-viewer-image" alt="" />
+        </dialog>
+        <script src="./image-viewer.js" defer></script>
         <dialog class="command-palette" id="command-palette" aria-label="Quick switcher">
             <div class="palette-search-row">
                 <svg aria-hidden="true"><use href="#i-search" /></svg>

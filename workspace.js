@@ -209,7 +209,7 @@ $("#sidebar-toggle").addEventListener("click", () => setSidebar(mobile.matches ?
 $("#sidebar-backdrop").addEventListener("click", () => setSidebar(false));
 $("#details-toggle").addEventListener("click", () => setDetails(!document.body.classList.contains("details-open")));
 document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape" && !$("#command-palette")?.open) {
+    if (event.key === "Escape" && !$("#command-palette")?.open && !$("#image-viewer")?.open) {
         if (document.body.classList.contains("mobile-sidebar-open")) { setSidebar(false); lastNavigationFocus?.focus(); }
         if (window.innerWidth < 1280) setDetails(false);
     }
