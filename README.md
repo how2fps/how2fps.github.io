@@ -15,7 +15,7 @@ Alternatively, run `node server.mjs` and open http://localhost:3000.
 - `workspace.js`: project navigation, screenshot galleries, local search and fixed sidebar links.
 - `theme.js`: Moonlight/Sunshine theme selection, restored before styles load and remembered locally.
 - `command-palette.js`: Ctrl+K / Cmd+K quick switcher for projects, pages, profile links and themes. Use arrow keys and Enter; Escape closes the native modal. The caption shortcut also opens it.
-- `image-viewer.js`: opens project images and full-size links in an on-page modal. Browse screenshots with previous/next buttons or Left/Right keys; a counter shows the current position and the page gallery stays in sync. Close with the X button, Escape or the backdrop; focus returns to the opener.
+- `image-viewer.js`: opens project images and full-size links in an on-page modal. Browse screenshots with previous/next buttons, Left/Right keys or horizontal mobile swipes; vertical gestures and pinch zoom remain available. A counter shows the current position and the page gallery stays in sync. Close with the X button, Escape or the backdrop; focus returns to the opener.
 - `portfolio-data.js`: all eleven project descriptions, technology explanations, screenshots and biography. Edit this file to change project content.
 - `pictures/`: project images and thumbnails.
 

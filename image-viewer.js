@@ -6,6 +6,8 @@
     const previous = document.getElementById("image-viewer-previous");
     const next = document.getElementById("image-viewer-next");
     const position = document.getElementById("image-viewer-position");
+    const stage = dialog.querySelector(".image-viewer-stage");
+    let swipeStart;
     let opener;
     let shots = [];
     let index = 0;
@@ -60,6 +62,28 @@
     closeButton.addEventListener("click", () => dialog.close());
     previous.addEventListener("click", () => step(-1));
     next.addEventListener("click", () => step(1));
+    stage.addEventListener("touchstart", (event) => {
+        swipeStart = null;
+        if (event.touches.length !== 1 || shots.length < 2 || event.target.closest("button") || (window.visualViewport?.scale || 1) > 1) return;
+        const touch = event.touches[0];
+        swipeStart = {id: touch.identifier, x: touch.clientX, y: touch.clientY};
+    }, {passive: true});
+    stage.addEventListener("touchmove", (event) => {
+        if (!swipeStart) return;
+        const touch = event.touches[0];
+        if (event.touches.length !== 1 || touch.identifier !== swipeStart.id || Math.abs(touch.clientY - swipeStart.y) > Math.max(20, Math.abs(touch.clientX - swipeStart.x))) swipeStart = null;
+    }, {passive: true});
+    stage.addEventListener("touchend", (event) => {
+        const start = swipeStart;
+        swipeStart = null;
+        if (!start || event.touches.length) return;
+        const touch = Array.from(event.changedTouches).find(touch => touch.identifier === start.id);
+        if (!touch) return;
+        const dx = touch.clientX - start.x;
+        const dy = touch.clientY - start.y;
+        if (Math.abs(dx) >= 50 && Math.abs(dx) > Math.abs(dy) * 1.5) step(dx < 0 ? 1 : -1);
+    }, {passive: true});
+    stage.addEventListener("touchcancel", () => { swipeStart = null; }, {passive: true});
     dialog.addEventListener("keydown", (event) => {
         if (event.key === "ArrowLeft" || event.key === "ArrowRight") {
             event.preventDefault();
@@ -73,6 +97,7 @@
         if (event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom) dialog.close();
     });
     dialog.addEventListener("close", () => {
+        swipeStart = null;
         image.removeAttribute("src");
         if (opener?.isConnected) opener.focus();
     });
